@@ -1,0 +1,269 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-medium-webfont.woff');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-bold-webfont.woff');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'SF Mono';
+  src: url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff');
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 10% 3.9%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Custom Styles */
+.text-balance {
+  text-wrap: balance;
+}
+
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-black to-gray-600 dark:from-white dark:to-gray-400;
+}
+
+.glass-panel {
+  @apply bg-white/70 dark:bg-black/70 backdrop-blur-lg border border-white/20 dark:border-black/20 rounded-2xl;
+}
+
+.hover-lift {
+  @apply transition-transform duration-300 hover:-translate-y-1;
+}
+
+.nav-item {
+  @apply relative py-2 px-1 font-medium text-sm transition-all duration-300 ease-in-out;
+}
+
+.nav-item::after {
+  content: '';
+  @apply absolute bottom-0 left-0 w-0 h-0.5 bg-black dark:bg-white transition-all duration-300 ease-in-out;
+}
+
+.nav-item:hover::after, .nav-item.active::after {
+  @apply w-full;
+}
+
+/* Animation Classes */
+.animate-stagger-in > * {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: staggerFadeIn 0.5s ease forwards;
+}
+
+.animate-stagger-in > *:nth-child(1) { animation-delay: 0.1s; }
+.animate-stagger-in > *:nth-child(2) { animation-delay: 0.2s; }
+.animate-stagger-in > *:nth-child(3) { animation-delay: 0.3s; }
+.animate-stagger-in > *:nth-child(4) { animation-delay: 0.4s; }
+.animate-stagger-in > *:nth-child(5) { animation-delay: 0.5s; }
+.animate-stagger-in > *:nth-child(6) { animation-delay: 0.6s; }
+.animate-stagger-in > *:nth-child(7) { animation-delay: 0.7s; }
+.animate-stagger-in > *:nth-child(8) { animation-delay: 0.8s; }
+.animate-stagger-in > *:nth-child(9) { animation-delay: 0.9s; }
+.animate-stagger-in > *:nth-child(10) { animation-delay: 1s; }
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes staggerFadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.animate-spin-slow {
+  animation: rotate 15s linear infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse 3s ease-in-out infinite;
+}
+
+/* Improved reveal animations */
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 0.7s ease;
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: all 0.7s ease;
+}
+
+.reveal-up {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.7s ease;
+}
+
+.reveal-down {
+  opacity: 0;
+  transform: translateY(-50px);
+  transition: all 0.7s ease;
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 0.7s ease;
+}
+
+.in-view {
+  opacity: 1;
+  transform: translate(0) scale(1);
+}
+
+/* Scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-neutral-300 dark:bg-neutral-600 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-neutral-400 dark:bg-neutral-500;
+}
+
+/* Project card hover effect */
+.project-card {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+.project-card:hover .project-image {
+  @apply scale-105;
+}
+
+.project-image {
+  @apply transition-transform duration-500 ease-in-out;
+}
+
+/* Lazy load image blur-up */
+.blur-up {
+  -webkit-filter: blur(5px);
+  filter: blur(5px);
+  transition: filter 400ms, -webkit-filter 400ms;
+}
+
+.blur-up.lazyloaded {
+  -webkit-filter: blur(0);
+  filter: blur(0);
+}
