@@ -12,11 +12,10 @@ const Footer = () => {
               to="/"
               className="font-mono text-lg font-medium tracking-tight"
             >
-              portfolio.
+              GreenPearl
             </Link>
             <p className="mt-4 text-sm text-neutral-600 dark:text-neutral-400 max-w-sm">
-              Creating intuitive digital experiences through thoughtful design
-              and innovative solutions.
+              Creating the experience of african kitchen in the US.
             </p>
           </div>
 
